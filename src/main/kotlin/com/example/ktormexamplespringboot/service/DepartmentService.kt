@@ -1,10 +1,10 @@
-package com.example.ktormexamplespringboot.usecase
+package com.example.ktormexamplespringboot.service
 
 import com.example.ktormexamplespringboot.domain.AddRequest
 import com.example.ktormexamplespringboot.domain.Department
 import com.example.ktormexamplespringboot.domain.UpdateRequest
 
-class DepartmentUsecase {
+class DepartmentService {
 
     fun addDepartment(addRequest: AddRequest) {
 //        departmentRepositoryImpl.insert(addRequest)
