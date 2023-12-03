@@ -1,3 +1,4 @@
+import com.google.protobuf.gradle.id
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -42,4 +43,22 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+protobuf {
+	protoc {
+		artifact = "com.google.protobuf:protoc:3.25.0"
+	}
+	plugins{
+		id("grpc"){
+			artifact = "io.grpc:protoc-gen-grpc-java:1.59.0"
+		}
+	}
+	generateProtoTasks{
+		all().forEach{
+			it.plugins{
+				id("grpc")
+			}
+		}
+	}
 }
