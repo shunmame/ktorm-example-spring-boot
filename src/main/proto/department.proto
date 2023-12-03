@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package com.example.proto.department;
+
+option java_package = "com.example.ktormexamplespringboot.proto.department";
+
+import "google/protobuf/empty.proto";
+
+service DepartmentService {
+  rpc AddDepartment (AddRequest) returns (google.protobuf.Empty);
+  rpc UpdateDepartment (UpdateRequest) returns (google.protobuf.Empty);
+  rpc GetDepartments (GetRequest) returns (DepartmentResponses);
+  rpc DeleteDepartment (DeleteRequest) returns (google.protobuf.Empty);
+}
+
+message AddRequest {
+  string name = 1;
+  string location = 2;
+}
+
+message UpdateRequest {
+  int32 id = 1;
+  string name = 2;
+  string location = 3;
+}
+
+message DepartmentResponses {
+  repeated Department departments = 1;
+}
+
+message Department {
+  int32 id = 1;
+  string name = 2;
+  string location = 3;
+}
+
+message DeleteRequest {
+  int32 id = 1;
+}
+
+message GetRequest {
+  optional int32 id = 1;
+}
