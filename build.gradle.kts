@@ -10,6 +10,9 @@ plugins {
 
 	// protobuf
 	id("com.google.protobuf") version "0.9.4"
+
+	// ktorm
+	id("com.google.devtools.ksp") version "1.9.20-1.0.14"
 }
 
 group = "com.example"
@@ -32,6 +35,16 @@ dependencies {
 	// grpc
 	implementation("io.github.lognet:grpc-spring-boot-starter:5.1.5")
 	implementation("javax.annotation:javax.annotation-api:1.3.2")
+
+	// jdbc
+	implementation("org.springframework.boot:spring-boot-starter-jdbc:3.1.5")
+
+	// ktorm
+	implementation("org.postgresql:postgresql:42.6.0")
+	implementation("org.ktorm:ktorm-core:3.6.0")
+	implementation("org.ktorm:ktorm-support-postgresql:3.6.0")
+	implementation("org.ktorm:ktorm-ksp-api:1.0.0-RC3")
+	ksp("org.ktorm:ktorm-ksp-compiler:1.0.0-RC3")
 }
 
 tasks.withType<KotlinCompile> {
